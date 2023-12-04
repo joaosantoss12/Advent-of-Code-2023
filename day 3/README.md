@@ -1,6 +1,6 @@
 [Couldn't finish the challenge by my own because a lack of time. This is copied from an existing code]
 
-[@evelez7]https://github.com/evelez7
+[@evelez7](https://github.com/evelez7)
 https://github.com/evelez7/aoc/blob/main/23/3.cpp
 
 <main>
