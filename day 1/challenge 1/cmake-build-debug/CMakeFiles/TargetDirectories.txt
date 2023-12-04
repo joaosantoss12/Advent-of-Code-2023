@@ -1,3 +1,0 @@
-C:/Users/utilizador/Desktop/Advent of Code 2023/day 1/challenge 1/cmake-build-debug/CMakeFiles/challenge_1.dir
-C:/Users/utilizador/Desktop/Advent of Code 2023/day 1/challenge 1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/utilizador/Desktop/Advent of Code 2023/day 1/challenge 1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
