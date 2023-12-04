@@ -66,11 +66,9 @@ int main() {
                 for (int y = -1; y < 2; ++y) {
                     if (current_char != '.' && !isdigit(current_char)) {
                         determine_nums(i + x, j + y);
-
                     }
                 }
             }
-
         }
     }
 
