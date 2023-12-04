@@ -1,82 +1,219 @@
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <sstream>
 #include <vector>
+#include <cctype>
 
 using namespace std;
 
-vector<string> lines;
-vector<int> nums;
-
-int construct_num(int i, int j);
-
-int determine_nums(int i, int j) {
-    if ((i >= 0 && i < lines.size()) && (j >= 0 && j < lines.at(i).length()) &&
-        isdigit(lines.at(i).at(j))) {
-        return construct_num(i, j);
-    }
-    return -1;
-}
-
-int construct_num(int i, int j) {
-    string current_line = lines.at(i);
-    string num;
-    int start, end;
-    int x = j;
-    for (; x >= 0; --x) {
-        if (x == -1 || !isdigit(current_line.at(x))) {
-            break;
-        }
-    }
-    start = x + 1;
-
-    x = j;
-    for (; x <= current_line.length(); ++x) {
-        if (x >= current_line.length() || !isdigit(current_line.at(x))) {
-            break;
-        }
-    }
-    end = x - 1;
-
-    for (int x = start; x < end + 1; ++x) {
-        num.push_back(current_line.at(x));
-    }
-    nums.push_back(stoi(num));
-
-    string new_line = current_line;
-    for (int x = start; x <= end; ++x)
-        new_line.at(x) = '.';
-    lines.at(i) = new_line;
-    return stoi(num);
-}
-
 int main() {
+    int answer = 0;
     ifstream file("input.txt");
+
     string line;
-    while (getline(file, line)) {
-        lines.push_back(line);
+    vector<vector<char>> tokens;
+
+    if (!file.is_open()) {
+        cout << "Error opening the file!";
+        return -1;
     }
 
-    for (int i = 0; i < lines.size(); ++i) {
-        line = lines.at(i);
+    char currentChar;
+    int nLine = -1;
 
-        for (int j = 0; j < line.length(); ++j) {
-            char current_char = line.at(j);
-            for (int x = -1; x < 2; ++x) {
-                for (int y = -1; y < 2; ++y) {
-                    if (current_char != '.' && !isdigit(current_char)) {
-                        determine_nums(i + x, j + y);
+    while (getline(file, line)) {
+        ++nLine;
+        vector<char> currentLine;
+        for (int i = 0; i < line.length(); i++) {
+            currentLine.push_back(line[i]);
+        }
+
+        tokens.push_back(currentLine);
+    }
+
+    for (int i = 0; i < tokens.size(); i++) {
+        string num;
+        cout << "LINE " << i << endl;
+        for (int j = 0; j < tokens[i].size(); j++) {
+
+            if (!isdigit(tokens[i][j]) && tokens[i][j] != '.') {
+
+                // RIGHT
+                if (j + 1 < tokens[i].size() && isdigit(tokens[i][j + 1])) {
+                    num = tokens[i][j + 1];
+                    if (isdigit(tokens[i][j + 2]) && j + 2 < tokens[i].size()) {
+                        num += tokens[i][j + 2];
+                        if (isdigit(tokens[i][j + 3]) && j + 3 < tokens[i].size()) {
+                            num += tokens[i][j + 3];
+                        }
+                    }
+
+                    answer += stoi(num);
+                    cout << "SUMMED + " << num << endl;
+                }
+
+                // LEFT
+                if (j - 1 >= 0 && isdigit(tokens[i][j - 1])) {
+                    if (isdigit(tokens[i][j - 3]) && j - 3 >= 0) {    // 3 digits
+                        num = tokens[i][j - 3];
+                        num += tokens[i][j - 2];
+                        num += tokens[i][j - 1];
+                    } else if (isdigit(tokens[i][j - 2]) && j - 2 >= 0) {   // 2 digits
+                        num = tokens[i][j - 2];
+                        num += tokens[i][j - 1];
+                    }
+
+                    answer += stoi(num);
+                    cout << "SUMMED + " << num << endl;
+                }
+
+                // ABOVE
+                if (i - 1 >= 0 && isdigit(tokens[i - 1][j])) {
+                    if (isdigit(tokens[i - 1][j - 1]) && j - 1 >= 0) {      // CHECK LEFT
+                        if (isdigit(tokens[i - 1][j - 2]) && j - 2 >= 0) {
+                            num = tokens[i - 1][j - 2];
+                            num += tokens[i - 1][j - 1];
+                            num += tokens[i - 1][j];
+                        }
+                        else if(isdigit(tokens[i - 1][j + 1]) && j + 1 < tokens[i].size()){
+                                num = tokens[i - 1][j - 1];
+                                num += tokens[i - 1][j];
+                                num += tokens[i - 1][j + 1];
+                        }
+                        else {
+                            num = tokens[i - 1][j - 1];
+                            num += tokens[i - 1][j];
+                        }
+                    }
+                    else {                               // CHECK RIGHT
+                        num = tokens[i - 1][j];
+                        if (isdigit(tokens[i - 1][j + 1])) {
+                            num += tokens[i - 1][j + 1];
+                            if (isdigit(tokens[i - 1][j + 2])) {
+                                num += tokens[i - 1][j + 2];
+                            }
+                        }
+                    }
+
+                    answer += stoi(num);
+                    cout << "SUMMED + " << num << endl;
+                }
+
+                // UNDER
+                if (i + 1 < tokens.size() && isdigit(tokens[i + 1][j])) {
+                    if (isdigit(tokens[i + 1][j - 1])) {      // CHECK LEFT
+                        if (isdigit(tokens[i + 1][j - 2]) && j - 2 >= 0) {
+                            num = tokens[i + 1][j - 2];
+                            num += tokens[i + 1][j - 1];
+                            num += tokens[i + 1][j];
+                        }
+                        else if(isdigit(tokens[i + 1][j + 1]) && j + 1 < tokens[i].size()){
+                                num = tokens[i + 1][j - 1];
+                                num += tokens[i + 1][j];
+                                num += tokens[i + 1][j + 1];
+                        }
+                        else {
+                            num = tokens[i + 1][j - 1];
+                            num += tokens[i + 1][j];
+                        }
+                    }
+                    else {                               // CHECK RIGHT
+                        num = tokens[i + 1][j];
+                        if (isdigit(tokens[i + 1][j + 1]) && j + 1 < tokens[i].size()) {
+                            num += tokens[i + 1][j + 1];
+                            if (isdigit(tokens[i + 1][j + 2]) && j + 2 < tokens[i].size()) {
+                                num += tokens[i + 1][j + 2];
+                            }
+                        }
+                    }
+
+                    answer += stoi(num);
+                    cout << "SUMMED + " << num << endl;
+                }
+
+                // ABOVE RIGHT
+                if (i - 1 >= 0 && j + 1 < tokens[i - 1].size() && isdigit(tokens[i - 1][j + 1])) {
+                    // ONLY TO THE RIGHT ALLOWED (if not, it's above)
+                    if (!isdigit(tokens[i - 1][j])) {  // IF IT HAS DIGIT HERE THEN IT'S LITERALLY ABOVE THE SPECIAL CHARACTER
+
+                        num = tokens[i - 1][j + 1];
+                        if (isdigit(tokens[i - 1][j + 1 + 1]) && j + 1 + 1 < tokens[i - 1].size()) {
+                            num += tokens[i - 1][j + 1 + 1];
+                            if (isdigit(tokens[i - 1][j + 1 + 2]) && j + 1 + 1 < tokens[i - 1].size()) {
+                                num += tokens[i - 1][j + 1 + 2];
+                            }
+                        }
+
+
+                        answer += stoi(num);
+                        cout << "SUMMED + " << num << endl;
+                    }
+                }
+
+                // ABOVE LEFT
+                if (i - 1 >= 0 && j - 1 >= 0 && isdigit(tokens[i - 1][j - 1])) {
+                    // ONLY TO THE LEFT ALLOWED (if not, it's above)
+                    if (!isdigit(tokens[i - 1][j])) {  // IF IT HAS DIGIT HERE THEN IT'S LITERALLY ABOVE THE SPECIAL CHARACTER
+                        num = tokens[i-1][j-1];
+                        if (j - 1 - 1 >= 0 && isdigit(tokens[i-1][j-1-1])) {
+                            num = tokens[i - 1][j - 1 - 1];
+                            num += tokens[i - 1][j - 1];
+                        }
+                        if (isdigit(tokens[i - 1][j - 1 - 2]) && j - 1 - 2 >= 0) {
+                            num = tokens[i - 1][j - 1 - 2];
+                            num += tokens[i - 1][j - 1 - 1];
+                            num += tokens[i - 1][j - 1];
+                        }
+
+
+                        answer += stoi(num);
+                        cout << "SUMMED + " << num << endl;
+                    }
+                }
+
+                // UNDER RIGHT
+                if (i + 1 <= tokens.size() && j + 1 < tokens[i + 1].size() && isdigit(tokens[i + 1][j + 1])) {
+                    // ONLY TO THE RIGHT ALLOWED (if not, it's above)
+                    if (!isdigit(tokens[i + 1][j])) {  // IF IT HAS DIGIT HERE THEN IT'S LITERALLY ABOVE THE SPECIAL CHARACTER
+                        num = tokens[i + 1][j + 1];
+                        if (isdigit(tokens[i + 1][j + 1 + 1]) && j + 1 + 1 < tokens[i - 1].size()) {
+                            num += tokens[i + 1][j + 1 + 1];
+                            if (isdigit(tokens[i + 1][j + 1 + 2]) && j + 1 + 2 < tokens[i - 1].size()) {
+                                num += tokens[i + 1][j + 1 + 2];
+                            }
+                        }
+
+
+                        answer += stoi(num);
+                        cout << "SUMMED + " << num << endl;
+                    }
+                }
+
+                // UNDER LEFT
+                if (i + 1 <= tokens.size() && j - 1 >= 0 && isdigit(tokens[i + 1][j - 1])) {
+                    // ONLY TO THE LEFT ALLOWED (if not, it's above)
+                    if (!isdigit(tokens[i + 1][j])) {  // IF IT HAS DIGIT HERE THEN IT'S LITERALLY ABOVE THE SPECIAL CHARACTER
+                        num = tokens[i+1][j-1];
+                        if (j - 1 - 1 >= 0 && isdigit(tokens[i+1][j-1-1])) {
+                            num = tokens[i + 1][j - 1 - 1];
+                            num += tokens[i + 1][j - 1];
+                        }
+                        if (isdigit(tokens[i + 1][j - 1 - 2]) && j - 1 - 2 >= 0) {
+                            num = tokens[i + 1][j - 1 - 2];
+                            num += tokens[i + 1][j - 1 - 1];
+                            num += tokens[i + 1][j - 1];
+                        }
+
+
+                        answer += stoi(num);
+                        cout << "SUMMED + " << num << endl;
                     }
                 }
             }
         }
+        cout << endl;
     }
 
-    int sum = 0;
-    for (int num: nums)
-        sum += num;
-    cout << sum << '\n';
-
-
-    return 0;
+    cout << "ANSWER: " << answer;
 }
