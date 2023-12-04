@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     int answer = 0;
-    ifstream file("input.txt");
+    ifstream file("../../input.txt");
 
     string line;
     vector<vector<char>> tokens;
@@ -19,7 +19,6 @@ int main() {
         return -1;
     }
 
-    char currentChar;
     int nLine = -1;
 
     while (getline(file, line)) {
@@ -34,7 +33,6 @@ int main() {
 
     for (int i = 0; i < tokens.size(); i++) {
         string num;
-        cout << "LINE " << i << endl;
         for (int j = 0; j < tokens[i].size(); j++) {
 
             if (!isdigit(tokens[i][j]) && tokens[i][j] != '.') {
@@ -50,7 +48,6 @@ int main() {
                     }
 
                     answer += stoi(num);
-                    cout << "SUMMED + " << num << endl;
                 }
 
                 // LEFT
@@ -65,7 +62,6 @@ int main() {
                     }
 
                     answer += stoi(num);
-                    cout << "SUMMED + " << num << endl;
                 }
 
                 // ABOVE
@@ -97,7 +93,6 @@ int main() {
                     }
 
                     answer += stoi(num);
-                    cout << "SUMMED + " << num << endl;
                 }
 
                 // UNDER
@@ -129,7 +124,6 @@ int main() {
                     }
 
                     answer += stoi(num);
-                    cout << "SUMMED + " << num << endl;
                 }
 
                 // ABOVE RIGHT
@@ -147,7 +141,6 @@ int main() {
 
 
                         answer += stoi(num);
-                        cout << "SUMMED + " << num << endl;
                     }
                 }
 
@@ -160,7 +153,7 @@ int main() {
                             num = tokens[i - 1][j - 1 - 1];
                             num += tokens[i - 1][j - 1];
                         }
-                        if (isdigit(tokens[i - 1][j - 1 - 2]) && j - 1 - 2 >= 0) {
+                        if (isdigit(tokens[i-1][j-1-1]) && isdigit(tokens[i - 1][j - 1 - 2]) && j - 1 - 2 >= 0) {
                             num = tokens[i - 1][j - 1 - 2];
                             num += tokens[i - 1][j - 1 - 1];
                             num += tokens[i - 1][j - 1];
@@ -168,7 +161,6 @@ int main() {
 
 
                         answer += stoi(num);
-                        cout << "SUMMED + " << num << endl;
                     }
                 }
 
@@ -186,7 +178,6 @@ int main() {
 
 
                         answer += stoi(num);
-                        cout << "SUMMED + " << num << endl;
                     }
                 }
 
@@ -199,7 +190,7 @@ int main() {
                             num = tokens[i + 1][j - 1 - 1];
                             num += tokens[i + 1][j - 1];
                         }
-                        if (isdigit(tokens[i + 1][j - 1 - 2]) && j - 1 - 2 >= 0) {
+                        if (isdigit(tokens[i+1][j-1-1]) && isdigit(tokens[i + 1][j - 1 - 2]) && j - 1 - 2 >= 0) {
                             num = tokens[i + 1][j - 1 - 2];
                             num += tokens[i + 1][j - 1 - 1];
                             num += tokens[i + 1][j - 1];
@@ -207,12 +198,10 @@ int main() {
 
 
                         answer += stoi(num);
-                        cout << "SUMMED + " << num << endl;
                     }
                 }
             }
         }
-        cout << endl;
     }
 
     cout << "ANSWER: " << answer;
