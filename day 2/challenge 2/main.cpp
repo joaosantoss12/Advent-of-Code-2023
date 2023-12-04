@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
     int answer = 0;
-    ifstream file("../../input.txt");
+    ifstream file("day 2/input.txt");
 
     string line;
     string currentGameID;

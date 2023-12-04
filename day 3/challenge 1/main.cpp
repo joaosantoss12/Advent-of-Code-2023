@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     int answer = 0;
-    ifstream file("../../input.txt");
+    ifstream file("day 3/input.txt");
 
     string line;
     vector<vector<char>> tokens;

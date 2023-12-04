@@ -9,7 +9,7 @@ using namespace std;
 int main() {
     int answer = 0;
     ifstream file;
-    file.open("../../input.txt");
+    file.open("day 1/input.txt");
 
     string line;
     string digits[MAX_DIGITS];
