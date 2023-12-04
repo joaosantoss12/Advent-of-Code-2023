@@ -1,3 +1,7 @@
+[Couldn't finish the challenge by my own because a lack of time. This is copied from an existing code]
+@evelez7
+https://github.com/evelez7/aoc/blob/main/23/3.cpp
+
 <main>
 <article class="day-desc"><h2>--- Day 3: Gear Ratios ---</h2><p>You and the Elf eventually reach a <a href="https://en.wikipedia.org/wiki/Gondola_lift" target="_blank">gondola lift</a> station; he says the gondola lift will take you up to the <em>water source</em>, but this is as far as he can bring you. You go inside.</p>
 <p>It doesn't take long to find the gondolas, but there seems to be a problem: they're not moving.</p>
