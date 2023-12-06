@@ -235,47 +235,8 @@ int main() {
         }
     }
 
-    // ===== PRINT ALL VECTORS WITH .txt INFO ALREADY SET =====
-    /*
-
-    cout << "SEED TO SOIL" << endl;
-    for(int i = 0; i < seed_to_soil_list.size(); i++){
-        cout << i+1 << ": " << seed_to_soil_list[i].start_soil << " " << seed_to_soil_list[i].start_seed << " " << seed_to_soil_list[i].range << endl;
-    }
-
-    cout << endl << "SOIL TO FERTILIZER" << endl;
-    for(int i = 0; i < soil_to_fertilizer_list.size(); i++){
-        cout << i+1 << ": " << soil_to_fertilizer_list[i].start_fertilizer << " " << soil_to_fertilizer_list[i].start_soil << " " << soil_to_fertilizer_list[i].range << endl;
-    }
-
-    cout << endl << "FERTILIZER TO WATER" << endl;
-    for(int i = 0; i < fertilizer_to_water_list.size(); i++){
-        cout << i+1 << ": " << fertilizer_to_water_list[i].start_water << " " << fertilizer_to_water_list[i].start_fertilizer << " " << fertilizer_to_water_list[i].range << endl;
-    }
-
-    cout << endl << "WATER TO LIGHT" << endl;
-    for(int i = 0; i < water_to_light_list.size(); i++){
-        cout << i+1 << ": " << water_to_light_list[i].start_light << " " << water_to_light_list[i].start_water << " " << water_to_light_list[i].range << endl;
-    }
-
-    cout << endl << "LIGHT TO TEMPERATURE" << endl;
-    for(int i = 0; i < light_to_temperature_list.size(); i++){
-        cout << i+1 << ": " << light_to_temperature_list[i].start_temperature << " " << light_to_temperature_list[i].start_light << " " << light_to_temperature_list[i].range << endl;
-    }
-
-    cout << endl << "TEMPERATURE TO HUMIDITY" << endl;
-    for(int i = 0; i < temperature_to_humidity_list.size(); i++){
-        cout << i+1 << ": " << temperature_to_humidity_list[i].start_humidity << " " << temperature_to_humidity_list[i].start_temperature << " " << temperature_to_humidity_list[i].range << endl;
-    }
-
-    cout << endl << "HUMIDITY TO LOCATION" << endl;
-    for(int i = 0; i < humidity_to_location_list.size(); i++){
-        cout << i+1 << ": " << humidity_to_location_list[i].start_location << " " << humidity_to_location_list[i].start_humidity << " " << humidity_to_location_list[i].range << endl;
-    }*/
-
-
     vector<unsigned long>locations_list;
-int xd = 0;
+
     // FOR EACH SEED
     for (int i = 0; i < seeds.size(); i++) {
         unsigned long soil = -1;
@@ -394,14 +355,8 @@ int xd = 0;
             }
         }
 
-        ++xd;
-
         locations_list.push_back(location);
-        // ===== PRINT FOUND SOIL,FERTILIZER,WATER,LIGHT,TEMPERATURE,HUMIDTY AND LOCATION FOR EVERY SEED =====
-        cout << endl << "SEED: " << seeds[i] << " SOIL: " << soil << " FERTILIZER: " << fertilizer << " WATER: " << water << " LIGHT: " << light << " TEMPERATURE: " << temperature << " HUMIDITY: " << humidity << " LOCATION: " << location << endl;
     }
-
-    cout << endl;
 
     for(int i = 0; i < locations_list.size(); i++){
         if(locations_list[i] < answer)
