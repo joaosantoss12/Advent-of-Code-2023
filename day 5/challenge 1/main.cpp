@@ -235,8 +235,6 @@ int main() {
         }
     }
 
-    vector<unsigned long>locations_list;
-
     // FOR EACH SEED
     for (int i = 0; i < seeds.size(); i++) {
         unsigned long soil = -1;
@@ -355,13 +353,10 @@ int main() {
             }
         }
 
-        locations_list.push_back(location);
+        if(location < answer)
+            answer = location;
     }
 
-    for(int i = 0; i < locations_list.size(); i++){
-        if(locations_list[i] < answer)
-            answer = locations_list[i];
-    }
 
     cout << "ANSWER: " << answer;
 }
