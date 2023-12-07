@@ -31,7 +31,6 @@ unsigned long findValue(const vector<Data>& data, unsigned long currentValue){
     return currentValue;
 }
 
-
 int main() {
     unsigned long answer = ULONG_MAX;
 
