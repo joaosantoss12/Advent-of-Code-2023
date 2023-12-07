@@ -93,8 +93,6 @@ int main() {
     while (getline(file, line)) {
         istringstream iss(line);
 
-        int lastLine = nLine;
-
         ++nLine;
 
         while (iss >> nextToken) {
