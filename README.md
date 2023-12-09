@@ -7,7 +7,7 @@ I chose to use C++ because I wanted to practise my skills, explore the language 
 
 ⚠️ Some puzzles resolutions may not be optimal in terms of clarity, efficiency, and adherence ⚠️
 
-[hadn't much time to review and optimize all the puzzles]
+[hadn't much time to review and optimize all of them]
 
 <p align="left">
   <a href="https://skillicons.dev">
