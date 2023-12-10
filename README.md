@@ -11,7 +11,7 @@ I chose C++ because I wanted to practise my skills, explore the language and imp
 
  Day | Challenge Name | Stars |
  :-:| :-: | :-: |
- 01 | [Trebuchet](day%201) | ⭐️⭐️ |
+ 01 | [Trebuchet?!](day%201) | ⭐️⭐️ |
  02 | [Cube Conundrum](day%202) | ⭐️⭐️ |
  03 | [Gear Ratios](day%203) | ⭐️⭐️ |
  04 | [Scratchcards](day%204) | ⭐️⭐️ |
