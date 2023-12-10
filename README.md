@@ -11,15 +11,15 @@ I chose C++ because I wanted to practise my skills, explore the language and imp
 
  Day | Challenge Name | Stars |
  :-:| :-: | :-: |
- 01 | [Trebuchet](day1) | ⭐️⭐️ |
- 02 | [Cube Conundrum](day2) | ⭐️⭐️ |
- 03 | [Gear Ratios](day3) | ⭐️⭐️ |
- 04 | [Scratchcards](day4) | ⭐️⭐️ |
- 05 | [If You Give A Seed A Fertilizer](day5) | ⭐️ |
- 06 | [Wait For It](day6) | ⭐️⭐️ |
- 07 | [Camel Cards](day7) | ⭐️⭐️ |
- 08 | [Haunted Wasteland](day8) | ⭐️⭐️ |
- 09 | [Mirage Maintenance](day9) | ⭐️⭐️ |
+ 01 | [Trebuchet](day%201) | ⭐️⭐️ |
+ 02 | [Cube Conundrum](day%202) | ⭐️⭐️ |
+ 03 | [Gear Ratios](day%203) | ⭐️⭐️ |
+ 04 | [Scratchcards](day%204) | ⭐️⭐️ |
+ 05 | [If You Give A Seed A Fertilizer](day%205) | ⭐️ |
+ 06 | [Wait For It](day%206) | ⭐️⭐️ |
+ 07 | [Camel Cards](day%207) | ⭐️⭐️ |
+ 08 | [Haunted Wasteland](day%208) | ⭐️⭐️ |
+ 09 | [Mirage Maintenance](day%209) | ⭐️⭐️ |
 
 <p align="left">
   <a href="https://skillicons.dev">
