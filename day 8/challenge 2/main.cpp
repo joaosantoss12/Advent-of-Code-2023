@@ -19,7 +19,7 @@ public:
 int main() {
     unsigned long long answer = 0;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 8/input.txt");
 
     string line;
     string nextToken;

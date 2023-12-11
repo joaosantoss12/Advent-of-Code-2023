@@ -11,7 +11,7 @@ int main() {
     int answer = 0;
     int currentCardAnswer;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 4/input.txt");
 
     string line;
     vector<int> winningNumbers;

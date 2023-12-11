@@ -10,7 +10,7 @@ int main() {
     int answer = 0;
     int copies;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 4/input.txt");
 
     string line;
     vector<string> lines;

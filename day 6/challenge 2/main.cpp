@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     int answer = 1;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 6/input.txt");
 
     string line;
     string nextToken;

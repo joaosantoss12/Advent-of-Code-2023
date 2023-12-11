@@ -27,7 +27,7 @@ class Point{
 int main() {
     int answer = 0;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 10/input.txt");
 
     string line;
     string nextToken;
@@ -94,49 +94,41 @@ int main() {
         currentPoint.i += 1;
         currentPoint.type = 'L';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.j - 1 >= 0 && characters[currentPoint.i][0][currentPoint.j - 1] == 'L') {
         currentPoint.j -= 1;
         currentPoint.type = 'L';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.i + 1 <= characters.size() - 1 && characters[currentPoint.i + 1][0][currentPoint.j] == 'J') { // UNDER
         currentPoint.i += 1;
         currentPoint.type = 'J';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.j + 1 <= characters[currentPoint.i][0].size() - 1 && characters[currentPoint.i][0][currentPoint.j + 1] == 'J') {
         currentPoint.j += 1;
         currentPoint.type = 'J';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.i - 1 >= 0 && characters[currentPoint.i - 1][0][currentPoint.j] == '7') { // ABOVE
         currentPoint.i -= 1;
         currentPoint.type = '7';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.j + 1 <= characters[currentPoint.i][0].size() - 1 && characters[currentPoint.i][0][currentPoint.j + 1] == '7') {
         currentPoint.j += 1;
         currentPoint.type = '7';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.i - 1 >= 0 && characters[currentPoint.i - 1][0][currentPoint.j] == 'F') { // ABOVE
         currentPoint.i -= 1;
         currentPoint.type = 'F';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
     else if (currentPoint.j - 1 >= 0 && characters[currentPoint.i][0][currentPoint.j - 1] == 'F') {
         currentPoint.j -= 1;
         currentPoint.type = 'F';
         loopPoints.push_back(currentPoint);
-        vertices.emplace_back(currentPoint.i, currentPoint.j);
     }
 
 

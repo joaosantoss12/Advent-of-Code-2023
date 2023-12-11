@@ -67,7 +67,7 @@ public:
 int main() {
     unsigned long answer = ULONG_MAX;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 5/input.txt");
 
     string line;
     vector<unsigned long> seeds;

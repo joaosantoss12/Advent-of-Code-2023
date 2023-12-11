@@ -19,7 +19,7 @@ int main() {
     long int answer = 0;
     long int answer_aux;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 9/input.txt");
 
     string line;
     string nextToken;

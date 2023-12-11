@@ -158,7 +158,7 @@ bool setRank(const string& a, const string& b){
 int main() {
     int answer = 0;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 7/input.txt");
 
     string line;
     string currentHand;

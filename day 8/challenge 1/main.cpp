@@ -18,7 +18,7 @@ public:
 int main() {
     int answer = 0;
 
-    ifstream file("../../input.txt");
+    ifstream file("day 8/input.txt");
 
     string line;
     string nextToken;
