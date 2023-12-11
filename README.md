@@ -20,6 +20,7 @@ I chose C++ because I wanted to practise my skills, explore the language and imp
  07 | [Camel Cards](day%207) | ⭐️⭐️ |
  08 | [Haunted Wasteland](day%208) | ⭐️⭐️ |
  09 | [Mirage Maintenance](day%209) | ⭐️⭐️ |
+ 10 | [Pipe Maze](day%2010) | ⭐️⭐️ |
 
 <p align="left">
   <a href="https://skillicons.dev">
