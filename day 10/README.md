@@ -1,3 +1,6 @@
+<code>
+⚠️ I got the puzzle 2 formula [area - (perimeter/2) - 1)] unintentionally from discord but credits to [Kimossab](https://github.com/Kimossab)
+</code>
 <main>
 <article class="day-desc"><h2>--- Day 10: Pipe Maze ---</h2><p>You use the hang glider to ride the hot air from Desert Island all the way up to the floating metal island. This island is surprisingly cold and there definitely aren't any thermals to glide on, so you leave your hang glider behind.</p>
 <p>You wander around for a while, but you don't find any people or animals. However, you do occasionally find signposts labeled "<a href="https://en.wikipedia.org/wiki/Hot_spring" target="_blank">Hot Springs</a>" pointing in a seemingly consistent direction; maybe you can find someone at the hot springs and ask them where the desert-machine parts are made.</p>
