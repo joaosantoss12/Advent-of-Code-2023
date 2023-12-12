@@ -2,6 +2,11 @@
 This is the first year I'm taking part in advent of code. 
 
 I chose C++ because I wanted to practise my skills, explore the language and improve my algorithm solving skills.
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=cpp" />
+  </a>
+</p>
 
 ⛔️ No Artificial Intelligence allowed to solve the puzzles 🙂
 
@@ -22,9 +27,3 @@ I chose C++ because I wanted to practise my skills, explore the language and imp
  09 | [Mirage Maintenance](day%209) | ⭐️⭐️ |
  10 | [Pipe Maze](day%2010) | ⭐️⭐️ |
  11 | [Cosmic Expansion](day%2011) | ⭐️⭐️ |
-
-<p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=cpp" />
-  </a>
-</p>
