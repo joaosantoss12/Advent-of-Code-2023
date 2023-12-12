@@ -1,5 +1,5 @@
 # Advent-of-Code-2023
-This is the first year I'm taking part in advent of code. 
+This is my first year participating in advent of code. 
 
 I chose C++ because I wanted to practise my skills, explore the language and improve my algorithm solving skills.
 <p align="left">
